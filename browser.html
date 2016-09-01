@@ -14,6 +14,7 @@
     </style>
     <link rel="stylesheet" media="screen" href="vendor/css/bootstrap-responsive.css" />
     <link rel="stylesheet" media="screen" href="styles.css" />
+    <link rel="stylesheet" media="screen" href="be/css/custom.css" />
   </head>
 
   <body>
@@ -21,7 +22,7 @@
     <div class="navbar navbar-fixed-top">
       <div class="navbar-inner">
         <div class="container-fluid">
-          <a class="brand"><img style="width: 42px; height: 21px; float: left;" src="./be/img/logo.svg" alt="Business Elements">Business Elements</a>
+          <a class="brand"><img style="width: 42px; height: 21px; float: left;" src="be/img/logo.svg" alt="Business Elements">Business Elements</a>
           <ul class="nav">
             <li><a href="#/" id="entryPointLink">Index</a></li>
           </ul>
@@ -35,7 +36,7 @@
 <form>
     <div class="input-append span12 location-bar-container">
       <input class="span11" id="appendedInputButton" type="text" value="<%= _.escape(url) %>">
-      <button class="btn" type="submit">Go!</button>
+      <button class="btn" type="submit"><i class="icon-arrow-right icon-white"></i></button>
        <span class="ajax-loader"></span>
     </div>
 </form>
@@ -64,18 +65,18 @@
               <td><%= link.name ? 'name: ' + link.name : 'index: ' + i %></a></td>
               <td>
               <% if (HAL.isUrl(rel)) { %>
-                <a class="dox" href="<%= HAL.normalizeUrl(HAL.buildUrl(rel)) %>"><i class="icon-book"></i></a>
+                <a class="dox" href="<%= HAL.normalizeUrl(HAL.buildUrl(rel)) %>"><i class="icon-book icon-white"></i></a>
               <% } %>
               </td>
               <td>
                 <% if (link.templated === true) { %>
-                  <a class="query btn btn-success" href="<%= HAL.normalizeUrl(link.href) %>" title="Query URI template"><i class="icon-question-sign"></i></a>
+                  <a class="query btn btn-success" href="<%= HAL.normalizeUrl(link.href) %>" title="Query URI template"><i class="icon-question-sign icon-white"></i></a>
                 <% } else { %>
-                  <a class="follow btn btn-success" href="<%= HAL.normalizeUrl(link.href) %>" title="Follow link"><i class="icon-arrow-right"></i></a>
+                  <a class="follow btn btn-success" href="<%= HAL.normalizeUrl(link.href) %>" title="Follow link"><i class="icon-arrow-right icon-white"></i></a>
                 <% } %>
               </td>
               <td>
-                <a class="non-get btn btn-warning" href="<%= HAL.normalizeUrl(link.href) %>" title="Perform non-GET request">!</a>
+                <a class="non-get btn btn-warning" href="<%= HAL.normalizeUrl(link.href) %>" title="Perform non-GET request"><i class="icon-wrench icon-white"></i></a>
               </td>
             </tr>
           <% }); %>
@@ -86,18 +87,18 @@
             <td><%= obj.name || '' %></td>
             <td>
             <% if (HAL.isUrl(rel)) { %>
-              <a class="dox" href="<%= HAL.normalizeUrl(HAL.buildUrl(rel)) %>"><i class="icon-book"></i></a>
+              <a class="dox" href="<%= HAL.normalizeUrl(HAL.buildUrl(rel)) %>"><i class="icon-book icon-white"></i></a>
             <% } %>
             </td>
             <td>
               <% if (obj.templated === true) { %>
-                <a class="query btn btn-success" href="<%= HAL.normalizeUrl(obj.href) %>" title="Query URI template"><i class="icon-question-sign"></i></a>
+                <a class="query btn btn-success" href="<%= HAL.normalizeUrl(obj.href) %>" title="Query URI template"><i class="icon-question-sign icon-white"></i></a>
               <% } else { %>
-                <a class="follow btn btn-success" href="<%= HAL.normalizeUrl(obj.href) %>" title="Follow link"><i class="icon-arrow-right"></i></a>
+                <a class="follow btn btn-success" href="<%= HAL.normalizeUrl(obj.href) %>" title="Follow link"><i class="icon-arrow-right icon-white"></i></a>
               <% } %>
             </td>
             <td>
-              <a class="non-get btn btn-warning" href="<%= HAL.normalizeUrl(obj.href) %>" title="Perform non-GET request">!</a>
+              <a class="non-get btn btn-warning" href="<%= HAL.normalizeUrl(obj.href) %>" title="Perform non-GET request"><i class="icon-wrench icon-white"></i></a>
             </td>
           </tr>
         <% } %>
@@ -112,7 +113,7 @@
   </script>
 
   <script id="request-headers-template" type="text/template">
-    <h2>Custom Request Headers</h2>
+    <h2>Request Headers</h2>
     <textarea class="span12"></textarea>
   </script>
 
@@ -185,10 +186,10 @@ Content-Type: application/json
 </textarea>
       </div>
 
-      <div class="modal-footer">
-        <button type="submit" class="btn btn-primary">Make Request</button>
-      </div>
     </form>
+    <div class="modal-footer">
+      <button type="submit" class="btn btn-primary">Make Request</button>
+    </div>
   </script>
 
   <script id="embedded-resources-template" type="text/template">
@@ -200,7 +201,7 @@ Content-Type: application/json
       <a class="accordion-toggle" href="#"><%= resource.identifier %><% if (resource.title) { %>: <span class="embedded-resource-title"><%- resource.title %></span><% } %>
       <% if (HAL.isUrl(resource.embed_rel)) { %>
         <span class="dox pull-right" data-href="<%= HAL.normalizeUrl(HAL.buildUrl(resource.embed_rel)) %>">
-          <i class="icon-book"></i>
+          <i class="icon-book icon-white"></i>
         </span>
       <% } %>
       </a>
