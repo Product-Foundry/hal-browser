@@ -52,7 +52,6 @@ HAL.Browser = Backbone.Router.extend({
 
   resourceRoute: function() {
     url = location.hash.slice(1);
-    console.log('target url changed to: ' + url);
     if (url.slice(0,8) !== 'NON-GET:') {
       HAL.client.get(url);
     }
