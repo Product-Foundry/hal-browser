@@ -165,12 +165,12 @@
 
 
   <script id="non-safe-request-template" type="text/template">
+    <form class="non-safe" action="<%= href %>">
     <div class="modal-header">
       <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
       <h3>Make a non-GET request</h3>
     </div>
 
-    <form class="non-safe" action="<%= href %>">
       <div class="modal-body">
         <p>Target URI</p>
         <input name="url" type="text" class="url" value="<%= href %>" />
@@ -188,11 +188,10 @@ Content-Type: application/json
 }
 </textarea>
       </div>
-
-    </form>
     <div class="modal-footer">
-      <button type="submit" class="btn btn-primary">Make Request</button>
+      <button type="submit" class="btn btn-success"><i class="icon-arrow-right icon-white"></i></button>
     </div>
+    </form>
   </script>
 
   <script id="embedded-resources-template" type="text/template">
